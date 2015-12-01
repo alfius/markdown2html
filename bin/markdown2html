@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'html/pipeline'
-require 'gollum-export'
+require 'markdown2html'
 
 # get the output directory parameter
 output_directory = nil
@@ -13,14 +13,15 @@ end
 if ARGV.length == 0
   # help mode
   puts 'Usage:'
-  puts '  gollum-export plataformatec/devise'
-  puts '  gollum-export file1.md file2.md ...'
+  puts '  markdown2html file.md'
+  puts '  markdown2html file1.md file2.md ...'
+  puts '  markdown2html plataformatec/devise'
 elsif ARGV.any? {|f| f =~ /\.md$/}
   # file mode
   ARGV.each do |file|
     next unless file =~ /\.md$/
     puts "Converting #{file}..."
-    Gollum::Export::Processor.convert_file(file, :output_directory => output_directory)
+    Markdown2Html::Processor.convert_file(file, :output_directory => output_directory)
   end
 else
   # github mode
@@ -43,6 +44,6 @@ else
 
   Dir.glob("#{directory}/**/*.md").each do |file|
     puts "Converting #{file}..."
-    Gollum::Export::Processor.convert_file(file, :output_directory => output_directory, :repository => repository)
+    Markdown2Html::Processor.convert_file(file, :output_directory => output_directory, :repository => repository)
   end
 end

@@ -1,6 +1,6 @@
 require 'bundler/setup'
 require 'rspec'
-require 'gollum-export'
+require 'markdown2html'
 
 Dir[File.expand_path("support/*", File.dirname(__FILE__))].each {|f| require f}
 
