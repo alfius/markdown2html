@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Convert markdown files and wikis to html.}
   gem.summary       = %q{Convert local markdown files or wikis from git repositories to html.}
   gem.homepage      = 'https://github.com/alfonsocora/markdown2html'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
