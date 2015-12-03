@@ -18,5 +18,6 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'html-pipeline', '~> 2.2', '>= 2.2.2'
   gem.add_runtime_dependency 'github-markdown', '~> 0.6', '>= 0.6.9'
-  gem.add_development_dependency 'rspec', '~> 2.12', '>= 2.12.0'
+  gem.add_development_dependency 'minitest', '~> 5.8', '>= 5.8.3'
+  gem.add_development_dependency 'rake', '~> 10.4', '>= 10.4.2'
 end
