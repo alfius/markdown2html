@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'html/pipeline'
 require 'markdown2html'
 
 # get the output directory parameter

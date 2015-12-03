@@ -1,4 +1,5 @@
 require 'markdown2html/link_filter'
+require 'html/pipeline'
 
 module Markdown2Html
   class Processor
