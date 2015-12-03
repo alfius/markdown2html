@@ -2,12 +2,6 @@
 
 require 'markdown2html'
 
-# get the output directory parameter
-output_directory = nil
-if o_index = ARGV.index('-o')
-  output_directory = ARGV[o_index + 1]
-end
-
 # detect mode
 if ARGV.length == 0
   # help mode
@@ -20,14 +14,13 @@ elsif ARGV.any? {|f| f =~ /\.md$/}
   ARGV.each do |file|
     next unless file =~ /\.md$/
     puts "Converting #{file}..."
-    Markdown2Html::Processor.convert_file(file, :output_directory => output_directory)
+    Markdown2Html::Processor.convert_file(file)
   end
 else
   # github mode
   repository = ARGV[0]
   wiki_repository = "#{repository}.wiki"
   directory = wiki_repository.split('/')[1]
-  output_directory ||= "#{directory}_html"
 
   unless Dir.exists?(directory)
     clone_command = "git clone git://github.com/#{wiki_repository}.git"
@@ -35,14 +28,8 @@ else
     fail unless system(clone_command)
   end
 
-  unless Dir.exists?(output_directory)
-    mkdir_command = "mkdir #{output_directory}"
-    puts "> #{mkdir_command}"
-    fail unless system(mkdir_command)
-  end
-
   Dir.glob("#{directory}/**/*.md").each do |file|
     puts "Converting #{file}..."
-    Markdown2Html::Processor.convert_file(file, :output_directory => output_directory, :repository => repository)
+    Markdown2Html::Processor.convert_file(file, :repository => repository)
   end
 end

@@ -1,25 +1,30 @@
-#Markdown2Html
+# Markdown2Html
 
-##Overview
+## Overview
 
-Convert local markdown files or wikis from git repositories to html.
+Convert local markdown files or entire GitHub wikis to html.
 
-##Installation
+## Installation
 
 ```bash
-  $ gem install markdown2html
+  gem install markdown2html
 ```
 
-##Usage
+## Usage
 
-Local conversion:
+### Local conversion
 
 ```bash
+  markdown2html file.md
   markdown2html file1.md file2.md ...
 ```
 
-Download and convert a GitHub wiki:
+The html file will be created in the same directory with a similar name and the `.html` extension.
+
+### GitHub wiki
 
 ```bash
   markdown2html plataformatec/devise
 ```
+
+This command clones the wiki in the current directory and then it converts each md file on it to html.
