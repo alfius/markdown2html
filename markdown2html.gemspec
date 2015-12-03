@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = 'markdown2html'
-  gem.version       = '0.1.1'
+  gem.version       = '0.1.2'
   gem.authors       = ['Alf Cora']
   gem.email         = ['alfius@protonmail.com']
   gem.description   = %q{Convert markdown files and wikis to html.}
